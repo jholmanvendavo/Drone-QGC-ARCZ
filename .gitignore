@@ -1,99 +1,118 @@
+# -------------------------
+# CORE BUILD ARTIFACTS
+# -------------------------
+build/
+cmake-build-*/
+obj/
+CMakeFiles/
+CMakeCache.txt
+CMakeUserPresets.json
+*.o
+*.obj
+*.pdb
+*.lib
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.app
+*.class
+
+# Qt Auto-Generated Files
+moc_*
+ui_*
+*.moc
+*.qrc.dep
+qrc_*.cpp
+*_qmlcache.qrc
+.qmlls.ini
+
+# Qt Creator / QMake
+*.pro.user
+*.qmake.stash
+*.prl
+
+# Ninja / Make
+*.ninja
+.ninja_log
+.ninja_deps
+
+# -------------------------
+# EDITORS / IDEs
+# -------------------------
 .idea/
 .vscode/
-.cache/
-cmake-build-*/
-out/
-libs/lib/Frameworks/GStreamer.framework
-*_qmlcache.qrc
+.vs/
+.qtcreator/
+.settings/
+
+# Swap / temp
 *.swp
-*.nfs
-CMakeFiles
-tags
-build/
-obj
+*.autosave
 .DS_Store
 *.log
+tmp/
+cache/
+.cache/
 *~
-*~.skp
-bin/*.exe
-bin/*.txt
-bin/mac
-*pro.user*
-.qmake.stash
-qrc_*.cpp
-*.Debug
-*.Release
-tmp
-debug
-release
-/qgroundcontrol
-qgroundcontrol.xcodeproj/**
-doc/html
-doc/doxy.log
-controller_log*
-user_config.pri
-*.app
-*.ncb
-*.vcproj
-*.vcxproj*
-*.sdf
-*.ipch
-*.pdb
-*.sln
-*.sln
-*.vcproj
-*.user
-*.ncb
-*.idb
-*.project
-*.cproject
-*.sln
-*.suo
-*.uhf.txt
-*.opensdf
+*.nfs
+
+# -------------------------
+# PLATFORM / DEPLOY
+# -------------------------
+bin/
+out/
+release/
+debug/
+GeneratedFiles/
+tmp/
+
+# iOS / Android / Mac
+ios/iOSForAppStore-Info.plist
+*.ipa
+*.apk
+*.keystore
+*.xcworkspace
+*.xcodeproj/
+*.xcuserdatad/
+*.xcscheme
+*.xcconfig
+*.plist
+android/local.properties
+
+# -------------------------
+# Libraries / third-party
+# -------------------------
+libs/thirdParty/
+libs/lib/Frameworks/GStreamer.framework
 thirdParty/qserialport-build-desktop/
 thirdParty/qserialport/bin/
 thirdParty/qserialport/lib/
-libs/thirdParty/libxbee/lib/
-GeneratedFiles/
 gstreamer-1.0-android*
-localization/qgroundcontrol/
 
-*.autosave
-.settings/
+# CPM modules build cache
+cpm_modules/
 
-# iOS Generated files
-ios/iOSForAppStore-Info.plist
-
-# Generated files
-moc_*
-ui_*
-*.o
-*.moc
-*.prl
-.qmlls.ini
-
-# android
-android/local.properties
-*.class
-
-# doxygen
+# -------------------------
+# Documentation
+# -------------------------
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+doc/html/
+doc/latex/
 src/html/
 src/latex/
 
-# vagrant
-.vagrant/
-Qt*-linux*.tar.*
-
-.vs/
-
-# vitepress - user guide
-node_modules/
-docs/.vitepress/cache/
-docs/.vitepress/dist/
-
-CMakeUserPresets.json
-cpm_modules
-
-.qtcreator/
+# -------------------------
+# Other
+# -------------------------
+qgroundcontrol.xcodeproj/**
+qgroundcontrol/
+user_config.pri
+controller_log*
+localization/qgroundcontrol/
 .claude/
+.vagrant/
+node_modules/
+tags

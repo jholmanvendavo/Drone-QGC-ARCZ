@@ -1,0 +1,44 @@
+{
+  "name": "QGroundControl Dev",
+  "build": {
+    "dockerfile": "../deploy/docker/Dockerfile-build-ubuntu",
+    "context": ".."
+  },
+  "workspaceFolder": "/project/source",
+
+  "remoteUser": "qgcuser",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "cmake.sourceDirectory": "/project/source",
+        "cmake.buildDirectory": "/project/build"
+      },
+      "extensions": [
+        "ms-vscode.cpptools",
+        "twxs.cmake",
+        "ms-vscode.cmake-tools",
+        "ms-azuretools.vscode-docker"
+      ]
+    }
+  },
+
+  "runArgs": [
+    "--network", "host",
+    "--env", "DISPLAY=${localEnv:DISPLAY}",
+    "--env", "QTWEBENGINE_DISABLE_SANDBOX=1",
+    "--volume", "/tmp/.X11-unix:/tmp/.X11-unix:rw",
+    "--device", "/dev/dri:/dev/dri",
+    "--cap-add", "SYS_ADMIN",
+    "--device", "/dev/fuse",
+    "--security-opt", "apparmor:unconfined"
+  ],
+
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/project/source,type=bind",
+    "source=${localWorkspaceFolder}/build,target=/project/build,type=bind"
+  ],
+
+"postCreateCommand": "sudo chown -R qgcuser:qgcuser /project/build && cmake -S /project/source -B /project/build -G Ninja -DCMAKE_BUILD_TYPE=RelWithDebInfo && cmake --build /project/build --target all --parallel"
+}
